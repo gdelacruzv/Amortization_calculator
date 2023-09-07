@@ -162,6 +162,9 @@ def main():
             df = apply_floating_rate(df, f, spread)
             df['Interest Rate (%)'] = (df['Period Interest'] / df['Outstanding Balance'].shift(1)) * 12 * 100
             df['Interest Rate (%)'] = df['Interest Rate (%)'].round(2)
+            # Set the first period's interest rate to the SOFR rate for the first period plus spread
+            first_period_rate = f(0) + spread
+            df.at[0, 'Interest Rate (%)'] = round(first_period_rate*100,2) # Convert to annual rate in percentage
             columns.append('Interest Rate (%)')  # Only add this column if rate_type is Floating
 
         df = df[columns]
