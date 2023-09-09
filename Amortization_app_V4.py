@@ -60,6 +60,7 @@ def homepage():
     - Ensure the file contains columns labeled 'Date' and 'Rate'.
     - Data should be sorted chronologically.
     - Rates should be in decimal form (e.g., 0.03 for 3%).
+    -A sample format for the data can be found in github
     
     If you don't have the SOFR data file, you can obtain the required data from:
     [Pensford Resources - Forward Curve](https://www.pensford.com/resources/forward-curve)
